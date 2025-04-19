@@ -1,24 +1,57 @@
-import { useState } from 'react'
+import React from 'react';
+import { createClient } from '@supabase/supabase-js';
+import './types/vite-env.d.ts';
 
-function App() {
-  const [count, setCount] = useState(0)
+const supabaseUrl = import.meta.env.SUPA_URL as string;
+const apiKey = import.meta.env.API_KEY as string;
 
-  return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const supabase = createClient(supabaseUrl, apiKey);
+
+interface Property {
+  name: string;
 }
 
-export default App
+interface PropertyValue {
+  value: string;
+  property: Property[];
+}
+
+interface Task {
+  id: number;
+  name: string;
+  property_values: PropertyValue[];
+}
+
+function App() {
+  const [tasks, setTasks] = React.useState<Task[]>([]);
+
+  React.useEffect(() => {
+    getTasks();
+  }, []);
+
+  async function getTasks() {
+    const { data, error } = await supabase.from('tasks').select(`
+        id,
+        name, 
+        property_values ( value, property:properties (*) )
+      `);
+
+    if (error) throw error;
+    console.log(data);
+    setTasks(data);
+  }
+
+  return (
+    <ul>
+      {tasks.map(task => (
+        <li key={task.id}>
+          <h3>{task.name}</h3>
+          <p>{task.property_values[0].property[0]?.name}</p>
+          <p>{task.property_values[0].value}</p>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export default App;
