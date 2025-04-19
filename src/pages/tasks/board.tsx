@@ -1,14 +1,15 @@
-import '../../assets/scss/pages/tasks/board.scss';
-import { Tasks } from '../../services/firebase/data/tasks.js';
-import { Properties } from '../../services/firebase/data/properties.js';
-import { PropertyValues } from '../../services/firebase/data/property_values.js';
-
+import React from 'react';
+import { useDb } from '../../services/supabase/data/client.tsx';
 import TaskCard from '../../components/cards/task.tsx';
+import '../../assets/scss/pages/tasks/board.scss';
 
 interface Task {
-  id: string;
+  id: number;
   name: string;
-  status: string;
+}
+interface TasksByStatus {
+  value: string;
+  tasks: Task[];
 }
 interface StatusProps {
   status: string;
@@ -27,28 +28,25 @@ const Status: React.FC<StatusProps> = ({ status, tasks }) => {
 };
 
 export default function Board() {
-  const groupedTasks: Record<string, Task[]> = {};
-  const statuses: string[] = [];
+  const db = useDb();
+  const [tasks, setTasksByStatus] = React.useState<TasksByStatus[]>([]);
 
-  Tasks.forEach((task: Task) => {
-    if (!statuses.includes(task.status)) {
-      statuses.push(task.status);
-    }
-
-    if (!groupedTasks[task.status]) {
-      groupedTasks[task.status] = [];
-    }
-    groupedTasks[task.status].push(task);
+  React.useEffect(() => {
+    getTasksByStatus();
   });
 
-  console.log(statuses);
-  console.log(groupedTasks);
+  async function getTasksByStatus() {
+    const { data, error } = await db.rpc('get_tasks_grouped_by_property_value');
+    if (error) throw error;
+
+    setTasksByStatus(data);
+  }
 
   return (
     <div id="page" className="board">
-      {statuses.map(status => {
-        return <Status status={status} tasks={groupedTasks[status]} />;
-      })}
+      {tasks.map(status => (
+        <Status status={status.value} tasks={status.tasks} />
+      ))}
     </div>
   );
 }

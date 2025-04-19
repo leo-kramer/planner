@@ -1,9 +1,8 @@
 import '../../assets/scss/components/cards/task.scss';
 
 interface Task {
-  id: string;
+  id: number;
   name: string;
-  status: string;
 }
 
 interface TaskCardProps {
