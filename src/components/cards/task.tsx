@@ -1,9 +1,21 @@
 import '../../assets/scss/components/cards/task.scss';
 
-export default function Task() {
+interface Task {
+  id: string;
+  name: string;
+  status: string;
+}
+
+interface TaskCardProps {
+  task: Task;
+}
+
+const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
   return (
     <div className="task">
-      <p>Task name</p>
+      <p>{task.name}</p>
     </div>
   );
-}
+};
+
+export default TaskCard;

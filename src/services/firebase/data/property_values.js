@@ -1,0 +1,98 @@
+export const PropertyValues = [
+  {
+    id: 1,
+    property_id: 1,
+    value: 'open',
+    task_id: 1,
+  },
+  {
+    id: 2,
+    property_id: 1,
+    value: 'open',
+    task_id: 2,
+  },
+  {
+    id: 3,
+    property_id: 1,
+    value: 'open',
+    task_id: 3,
+  },
+  {
+    id: 4,
+    property_id: 1,
+    value: 'open',
+    task_id: 4,
+  },
+  {
+    id: 5,
+    property_id: 1,
+    value: 'open',
+    task_id: 5,
+  },
+  {
+    id: 6,
+    property_id: 1,
+    value: 'open',
+    task_id: 6,
+  },
+  {
+    id: 7,
+    property_id: 1,
+    value: 'open',
+    task_id: 7,
+  },
+  {
+    id: 8,
+    property_id: 1,
+    value: 'open',
+    task_id: 8,
+  },
+  {
+    id: 9,
+    property_id: 2,
+    value: 'open',
+    task_id: 1,
+  },
+  {
+    id: 10,
+    property_id: 2,
+    value: 'open',
+    task_id: 2,
+  },
+  {
+    id: 11,
+    property_id: 2,
+    value: 'open',
+    task_id: 3,
+  },
+  {
+    id: 12,
+    property_id: 2,
+    value: 'open',
+    task_id: 4,
+  },
+  {
+    id: 13,
+    property_id: 2,
+    value: 'open',
+    task_id: 5,
+  },
+  {
+    id: 14,
+    property_id: 2,
+    value: 'open',
+    task_id: 6,
+  },
+  {
+    id: 15,
+    property_id: 2,
+    value: 'open',
+    task_id: 7,
+  },
+  {
+    id: 16,
+    property_id: 2,
+    value: 'open',
+    task_id: 8,
+  },
+];

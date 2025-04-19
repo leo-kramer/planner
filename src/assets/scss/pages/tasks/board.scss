@@ -1,5 +1,11 @@
 #page.board {
   display: flex;
   justify-content: center;
-  gap: 1em;
+  gap: 2em;
+
+  .status {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
 }
