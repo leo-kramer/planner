@@ -1,5 +1,7 @@
+@use 'variables' as *;
+
 body {
-  background-color: rgb(53, 53, 53);
-  color: white;
+  background-color: $background;
+  color: $text;
   font-family: sans-serif;
 }
