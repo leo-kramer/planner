@@ -6,9 +6,7 @@ export default function Menu() {
       <ul>
         <li>Home</li>
         <li>Tasks</li>
-        <li>Recipes</li>
         <li>Projects</li>
-        <li>Notebook</li>
         <li>Account</li>
       </ul>
     </nav>
