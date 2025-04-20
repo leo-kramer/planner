@@ -1,56 +1,20 @@
-import React from 'react';
-import { createClient } from '@supabase/supabase-js';
+import React, { Suspense } from 'react';
+import { DbProvider } from './services/supabase/data/connect.tsx';
+import './types/scss.d.ts';
 import './types/vite-env.d.ts';
+import './assets/scss/main/main.scss';
 
-const supabaseUrl = import.meta.env.SUPA_URL as string;
-const apiKey = import.meta.env.API_KEY as string;
-
-const supabase = createClient(supabaseUrl, apiKey);
-
-interface Property {
-  name: string;
-}
-
-interface PropertyValue {
-  value: string;
-  property: Property[];
-}
-
-interface Task {
-  id: number;
-  name: string;
-  property_values: PropertyValue[];
-}
+const TaskBoard = React.lazy(() => import('./pages/tasks/board.tsx'));
+const Menu = React.lazy(() => import('./components/sections/menu.tsx'));
 
 function App() {
-  const [tasks, setTasks] = React.useState<Task[]>([]);
-
-  React.useEffect(() => {
-    getTasks();
-  }, []);
-
-  async function getTasks() {
-    const { data, error } = await supabase.from('tasks').select(`
-        id,
-        name, 
-        property_values ( value, property:properties (*) )
-      `);
-
-    if (error) throw error;
-    console.log(data);
-    setTasks(data);
-  }
-
   return (
-    <ul>
-      {tasks.map(task => (
-        <li key={task.id}>
-          <h3>{task.name}</h3>
-          <p>{task.property_values[0].property[0]?.name}</p>
-          <p>{task.property_values[0].value}</p>
-        </li>
-      ))}
-    </ul>
+    <DbProvider>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Menu />
+        <TaskBoard />
+      </Suspense>
+    </DbProvider>
   );
 }
 
