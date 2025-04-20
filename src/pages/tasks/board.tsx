@@ -6,9 +6,16 @@ import '../../assets/scss/pages/tasks/board.scss';
 interface Task {
   id: number;
   name: string;
+  properties: Property[];
+}
+
+interface Property {
+  id: number;
+  property: string;
+  value: string;
 }
 interface TasksByStatus {
-  value: string;
+  status: string;
   tasks: Task[];
 }
 interface StatusProps {
@@ -33,19 +40,18 @@ export default function Board() {
 
   React.useEffect(() => {
     getTasksByStatus();
-  });
+  }, []);
 
   async function getTasksByStatus() {
     const { data, error } = await db.rpc('get_tasks_grouped_by_property_value');
     if (error) throw error;
-
     setTasksByStatus(data);
   }
 
   return (
     <div id="page" className="board">
       {tasks.map(status => (
-        <Status status={status.value} tasks={status.tasks} />
+        <Status status={status.status} tasks={status.tasks} />
       ))}
     </div>
   );
