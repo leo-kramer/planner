@@ -1,11 +1,77 @@
+@use '../../main/variables' as *;
+
 #page.board {
   display: flex;
   justify-content: center;
-  gap: 2em;
+  gap: 4em;
 
   .status {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    flex: 1;
+    gap: 0.5em;
+    padding: 2em;
+    background-color: rgba($primary, 0.125);
+    border-radius: 10px;
+    min-width: 15em;
+    min-height: 10em;
+
+    .status-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3 {
+        margin: 0;
+      }
+
+      button {
+        aspect-ratio: 1 / 1;
+        text-align: center;
+        background-color: rgba($accent, 0.5);
+        border: none;
+        border-radius: 10px;
+        width: 2.5em;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .create-task {
+      background-color: $background;
+      text-align: center;
+      border-radius: 10px;
+      padding: 1em;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      input {
+        background: transparent;
+        border: 1px solid rgba($text, 0.5);
+        border-radius: 10px;
+        padding: 0.5em;
+      }
+
+      button {
+        background-color: rgba($primary, 0.125);
+        border: 1px solid rgba($accent, 0.5);
+        border-radius: 10px;
+        padding: 0.5em;
+      }
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    > p {
+      margin: 0 0 1em 0;
+    }
   }
 }

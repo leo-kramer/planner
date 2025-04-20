@@ -1,3 +1,14 @@
 $primary: #61b74e;
+$accent: #7dcaac;
 $background: #f7faf5;
 $text: #0a1208;
+
+$base-font-size: 1rem;
+$type-scale: 1.125;
+$small: calc($base-font-size / $type-scale);
+$h6: calc($base-font-size * $type-scale);
+$h5: calc($h6 * $type-scale);
+$h4: calc($h5 * $type-scale);
+$h3: calc($h4 * $type-scale);
+$h2: calc($h3 * $type-scale);
+$h1: calc($h2 * $type-scale);
