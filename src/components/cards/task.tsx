@@ -17,12 +17,12 @@ interface TaskCardProps {
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
-  console.log(task);
-  console.log(task.properties);
-
   return (
     <div className="task">
-      <p>{task.name}</p>
+      <div className="task-header">
+        <p>{task.name}</p>
+        <button>x</button>
+      </div>
       <ul className="properties">
         {task.properties.map(
           property => property.property !== 'status' && <li key={property.id}>{property.value}</li>

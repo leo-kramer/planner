@@ -1,15 +1,46 @@
+@use '../../main/variables' as *;
+
 .task {
-  background-color: white;
-  color: black;
+  background-color: $background;
   text-align: center;
   border-radius: 10px;
-  padding: 1em 2em;
+  padding: 1em;
+  text-align: left;
+
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1em;
+
+    button {
+      aspect-ratio: 1 / 1;
+      text-align: center;
+      background-color: rgba($accent, 0.5);
+      border: none;
+      border-radius: 10px;
+      width: 2.5em;
+      opacity: 0;
+      transition: 200ms;
+
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+  }
 
   .properties {
     list-style-type: none;
-    text-align: left;
+
     padding: 0.5em;
-    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+
+    li {
+      width: fit-content;
+      padding: 0.5em;
+      border-radius: 10px;
+      background-color: rgba($accent, 1);
+    }
   }
 }

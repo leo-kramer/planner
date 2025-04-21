@@ -1,20 +1,23 @@
 import React, { Suspense } from 'react';
-import { DbProvider } from './services/supabase/data/connect.tsx';
+// import { DbProvider } from './services/supabase/data/connect.tsx';
+import { createDbClient, SupabaseContext } from './services/supabase/data/client.tsx';
 import './types/scss.d.ts';
 import './types/vite-env.d.ts';
 import './assets/scss/main/main.scss';
 
-const TaskBoard = React.lazy(() => import('./pages/tasks/board.tsx'));
+const TaskBoard = React.lazy(() => import('./pages/board/controller.tsx'));
 const Menu = React.lazy(() => import('./components/sections/menu.tsx'));
+
+const db = createDbClient();
 
 function App() {
   return (
-    <DbProvider>
+    <SupabaseContext.Provider value={db}>
       <Suspense fallback={<div>Loading...</div>}>
         <Menu />
         <TaskBoard />
       </Suspense>
-    </DbProvider>
+    </SupabaseContext.Provider>
   );
 }
 
