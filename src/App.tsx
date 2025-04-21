@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-// import { DbProvider } from './services/supabase/data/connect.tsx';
 import { createDbClient, SupabaseContext } from './services/supabase/data/client.tsx';
 import './types/scss.d.ts';
 import './types/vite-env.d.ts';
