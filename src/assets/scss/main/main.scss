@@ -4,7 +4,11 @@ body {
   background-color: $background;
   color: $text;
   font-family: sans-serif;
-  padding: 0 2em;
+  margin: 0;
+
+  #root {
+    display: flex;
+  }
 }
 
 h1 {
@@ -38,4 +42,28 @@ p {
 
 .small {
   font-size: $small;
+}
+
+a {
+  text-decoration: none;
+  color: $accent;
+
+  &:hover {
+    text-decoration: underline;
+    color: $accent-shade;
+  }
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  aspect-ratio: 1 / 1;
+
+  svg {
+    fill: $text;
+    width: 2em;
+    aspect-ratio: 1 / 1;
+  }
 }
