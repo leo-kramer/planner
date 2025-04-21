@@ -6,24 +6,31 @@
   left: 0;
   height: 100vh;
   box-shadow: 0 0 1em 0.5em rgba($text, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  background-color: $background;
+
+  // Li left padding + icon width + gap
+  --width: calc(1em + 2em + 1em);
+  width: var(--width);
+  overflow-x: hidden;
+  transition: 100ms;
+
+  &:hover {
+    width: calc(var(--width) + 6em);
+  }
 
   ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background-color: $background;
-    height: 100%;
     margin: 0;
     padding: 0;
-    // Li left padding + icon width + gap
-    --width: calc(1em + 2em + 1em);
-    width: var(--width);
-    overflow-x: hidden;
-    transition: 100ms;
 
-    &:hover {
-      width: calc(var(--width) + 6em);
+    &.pages {
+      justify-content: space-between;
+      flex: 1;
     }
 
     li {
@@ -44,18 +51,31 @@
           box-shadow: none;
         }
       }
+    }
+    a,
+    .contains-icon {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      color: $text;
 
-      a {
-        display: flex;
-        align-items: center;
-        gap: 1em;
-        color: $text;
-
-        &:hover {
-          text-decoration: none;
-          font-weight: bold;
-        }
+      &:hover {
+        text-decoration: none;
+        font-weight: bold;
       }
+    }
+  }
+
+  ul.profile {
+    .account {
+      font-weight: bold;
+    }
+
+    img {
+      width: 2em;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      outline: 2px solid $primary;
     }
   }
 }

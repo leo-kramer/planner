@@ -5,7 +5,20 @@ import '../../assets/scss/components/sections/menu.scss';
 export default function Menu() {
   return (
     <nav className="menu">
-      <ul>
+      <ul className="profile">
+        <li className="account">
+          <Link to="/account">
+            <img className="pfp" src="./src/assets/media/img/pfp.jpg" />
+            Leo
+          </Link>
+        </li>
+        <li className="contains-icon">
+          <span className="icon" dangerouslySetInnerHTML={{ __html: icons.inbox }}></span>
+          Inbox
+        </li>
+      </ul>
+
+      <ul className="pages">
         <div className="top">
           <li className="primary">
             <Link to="/">
