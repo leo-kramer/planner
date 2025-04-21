@@ -1,8 +1,17 @@
-$primary: #61b74e;
-$accent: #7dcaac;
-$background: #f7faf5;
-$text: #0a1208;
+// Base colours
+$primary: #a6d1c9;
+$secondary: #f2e6a9;
+$accent: #b7dfb7;
+$background: #e9f3f1;
+$text: #1e2423;
 
+// 15% darker
+$primary-shade: color-mix(in srgb, $primary 85%, $text 15%);
+$secondary-shade: color-mix(in srgb, $secondary 85%, $text 15%);
+$accent-shade: color-mix(in srgb, $accent 85%, $text 15%);
+$background-shade: color-mix(in srgb, $background 85%, $text 15%);
+
+// Font sizes
 $base-font-size: 1rem;
 $type-scale: 1.125;
 $small: calc($base-font-size / $type-scale);
