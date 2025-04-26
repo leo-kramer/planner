@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "svgo -f src/assets/media/icons --config=svgo.config.js && tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "clean": "svgo -f src/assets/media/icons --config=svgo.config.js"

@@ -1,13 +1,15 @@
 @use 'variables' as *;
+@use '../components/sections/menu.scss' as *;
 
 body {
   background-color: $background;
   color: $text;
   font-family: sans-serif;
   margin: 0;
+  padding: 0 0 0 $menu-width;
 
   #root {
-    display: flex;
+    padding: 2em;
   }
 }
 
@@ -63,7 +65,13 @@ a {
 
   svg {
     fill: $text;
-    width: 2em;
+    width: $icon-size;
     aspect-ratio: 1 / 1;
   }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

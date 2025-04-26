@@ -1,5 +1,9 @@
 @use '../../main/variables' as *;
 
+$li-padding: 1em;
+$icon-text-gap: 1em;
+$menu-width: calc($li-padding + $icon-size + $icon-text-gap);
+
 .menu {
   position: fixed;
   top: 0;
@@ -10,15 +14,26 @@
   flex-direction: column;
   gap: 2em;
   background-color: $background;
-
-  // Li left padding + icon width + gap
-  --width: calc(1em + 2em + 1em);
-  width: var(--width);
+  width: $menu-width;
   overflow-x: hidden;
   transition: 100ms;
 
   &:hover {
-    width: calc(var(--width) + 6em);
+    width: calc($menu-width + 6em);
+  }
+
+  @media screen and (max-width: $md) {
+    all: unset;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+      width: 100vw;
+    }
   }
 
   ul {
@@ -31,10 +46,20 @@
     &.pages {
       justify-content: space-between;
       flex: 1;
+
+      .top {
+        @media screen and (max-width: $md) {
+          display: flex;
+        }
+      }
+    }
+
+    @media screen and (max-width: $md) {
+      flex-direction: row;
     }
 
     li {
-      padding: 1em;
+      padding: $li-padding;
       transition: 200ms;
 
       &:hover {
@@ -43,7 +68,7 @@
         background-color: rgba($primary, 0.25);
       }
 
-      &.primary {
+      &.active {
         background-color: $primary;
 
         &:hover {
@@ -64,9 +89,19 @@
         font-weight: bold;
       }
     }
+
+    .label {
+      @media screen and (max-width: $md) {
+        display: none;
+      }
+    }
   }
 
   ul.profile {
+    @media screen and (max-width: $md) {
+      display: none;
+    }
+
     .account {
       font-weight: bold;
     }
