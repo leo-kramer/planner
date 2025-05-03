@@ -1,12 +1,21 @@
 @use 'variables' as *;
 @use '../components/sections/menu.scss' as *;
 
+html,
+body {
+  overflow: auto;
+}
+
 body {
   background-color: $background;
   color: $text;
   font-family: sans-serif;
   margin: 0;
   padding: 0 0 0 $menu-width;
+
+  @media screen and (max-width: $md) {
+    padding: 0;
+  }
 
   #root {
     padding: 2em;

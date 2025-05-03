@@ -3,6 +3,12 @@
 #page.board {
   display: flex;
   gap: 4em;
+  width: fit-content;
+  height: fit-content;
+
+  @media screen and (max-width: $md) {
+    flex-direction: column;
+  }
 
   .status {
     display: flex;

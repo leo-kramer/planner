@@ -23,10 +23,12 @@ $menu-width: calc($li-padding + $icon-size + $icon-text-gap);
   }
 
   @media screen and (max-width: $md) {
-    all: unset;
     position: fixed;
+    flex-direction: row;
+    top: unset;
     left: 0;
     bottom: 0;
+    height: unset;
     width: 100vw;
     margin: 0;
     padding: 0;
@@ -76,6 +78,13 @@ $menu-width: calc($li-padding + $icon-size + $icon-text-gap);
           box-shadow: none;
         }
       }
+
+      .pfp {
+        width: 2em;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        outline: 2px solid $primary;
+      }
     }
     a,
     .contains-icon {
@@ -104,13 +113,6 @@ $menu-width: calc($li-padding + $icon-size + $icon-text-gap);
 
     .account {
       font-weight: bold;
-    }
-
-    img {
-      width: 2em;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      outline: 2px solid $primary;
     }
   }
 }
