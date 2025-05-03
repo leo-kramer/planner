@@ -9,6 +9,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
+        name: 'Planner',
         icons: [
           {
             src: 'icons/192x192.png',
