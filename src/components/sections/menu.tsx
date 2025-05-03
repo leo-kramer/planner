@@ -78,7 +78,6 @@ const LargeMenu = () => {
 
 export default function Menu() {
   const breakpoint = useBreakpoint();
-  console.log(breakpoint);
 
   return (
     <nav className="menu">{['xs', 'sm'].includes(breakpoint) ? <SmallMenu /> : <LargeMenu />}</nav>
