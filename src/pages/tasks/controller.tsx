@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDb } from '../../services/supabase/data/client.tsx';
-import Board from './index.tsx';
+import Tasks from './index.tsx';
 
 export interface Task {
   id: number;
@@ -19,7 +19,7 @@ export interface TasksByStatus {
   tasks: Task[];
 }
 
-const TaskBoardController = () => {
+const TasksController = () => {
   const db = useDb();
   const [data, setData] = useState<TasksByStatus[]>([]);
 
@@ -33,7 +33,7 @@ const TaskBoardController = () => {
     getTasksByStatus();
   }, [db]);
 
-  return <Board data={data} />;
+  return <Tasks data={data} />;
 };
 
-export default TaskBoardController;
+export default TasksController;

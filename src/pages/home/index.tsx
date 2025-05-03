@@ -1,8 +1,8 @@
-interface BoardProps {
+interface TasksProps {
   data: string;
 }
 
-const Board = ({ data }: BoardProps) => {
+const Tasks = ({ data }: TasksProps) => {
   return (
     <div id="page" className="home">
       <h1>{data}</h1>
@@ -10,4 +10,4 @@ const Board = ({ data }: BoardProps) => {
   );
 };
 
-export default Board;
+export default Tasks;

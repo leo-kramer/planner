@@ -1,14 +1,14 @@
 import React from 'react';
 import { Task, TasksByStatus } from './controller.tsx';
 import TaskCard from '../../components/cards/task.tsx';
-import '../../assets/scss/pages/tasks/board.scss';
+import '../../assets/scss/pages/tasks/tasks.scss';
 
 interface StatusProps {
   status: string;
   tasks: Task[];
 }
 
-interface BoardProps {
+interface TasksProps {
   data: TasksByStatus[];
 }
 
@@ -52,9 +52,9 @@ const Status: React.FC<StatusProps> = ({ status, tasks }) => {
   );
 };
 
-const Board = ({ data }: BoardProps) => {
+const Tasks = ({ data }: TasksProps) => {
   return (
-    <div id="page" className="board">
+    <div id="page" className="tasks">
       {data.map(status => (
         <Status status={status.status} tasks={status.tasks} />
       ))}
@@ -62,4 +62,4 @@ const Board = ({ data }: BoardProps) => {
   );
 };
 
-export default Board;
+export default Tasks;
