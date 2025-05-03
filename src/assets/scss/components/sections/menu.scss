@@ -1,43 +1,76 @@
 @use '../../main/variables' as *;
 
+$li-padding: 1em;
+$icon-text-gap: 1em;
+$menu-width: calc($li-padding + $icon-size + $icon-text-gap);
+
 .menu {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   box-shadow: 0 0 1em 0.5em rgba($text, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  background-color: $background;
+  width: $menu-width;
+  overflow-x: hidden;
+  transition: 100ms;
+
+  &:hover {
+    width: calc($menu-width + 6em);
+  }
+
+  @media screen and (max-width: $md) {
+    position: fixed;
+    flex-direction: row;
+    top: unset;
+    left: 0;
+    bottom: 0;
+    height: unset;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+      width: 100vw;
+    }
+  }
 
   ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background-color: $background;
-    height: 100%;
     margin: 0;
     padding: 0;
-    // Li left padding + icon width + gap
-    --width: calc(1em + 2em + 1em);
-    width: var(--width);
-    overflow-x: hidden;
-    transition: 100ms;
 
-    &:hover {
-      width: calc(var(--width) + 6em);
+    &.pages {
+      justify-content: space-between;
+      flex: 1;
+
+      .top {
+        @media screen and (max-width: $md) {
+          display: flex;
+        }
+      }
+    }
+
+    @media screen and (max-width: $md) {
+      flex-direction: row;
     }
 
     li {
-      padding: 1em;
+      padding: $li-padding;
       transition: 200ms;
 
       &:hover {
         cursor: pointer;
         box-shadow: inset -0.25em 0 $primary;
         background-color: rgba($primary, 0.25);
-        font-weight: bold;
       }
 
-      &.primary {
+      &.active {
         background-color: $primary;
 
         &:hover {
@@ -46,16 +79,40 @@
         }
       }
 
-      a {
-        display: flex;
-        align-items: center;
-        gap: 1em;
-        color: $text;
-
-        &:hover {
-          text-decoration: none;
-        }
+      .pfp {
+        width: 2em;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        outline: 2px solid $primary;
       }
+    }
+    a,
+    .contains-icon {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      color: $text;
+
+      &:hover {
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+
+    .label {
+      @media screen and (max-width: $md) {
+        display: none;
+      }
+    }
+  }
+
+  ul.profile {
+    @media screen and (max-width: $md) {
+      display: none;
+    }
+
+    .account {
+      font-weight: bold;
     }
   }
 }

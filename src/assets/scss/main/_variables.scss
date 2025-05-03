@@ -1,13 +1,13 @@
 // Base colours
-$primary: #a6d1c9;
-$secondary: #f2e6a9;
-$accent: #b7dfb7;
-$background: #e9f3f1;
-$text: #1e2423;
+$primary: #9ec5d7;
+$secondary: #92be63;
+$accent: #eccc9e;
+$background: #eaf2f6;
+$text: #091016;
 
 // 15% darker
 $primary-shade: color-mix(in srgb, $primary 85%, $text 15%);
-$secondary-shade: color-mix(in srgb, $secondary 85%, $text 15%);
+$secondary-shade: color-m ix(in srgb, $secondary 85%, $text 15%);
 $accent-shade: color-mix(in srgb, $accent 85%, $text 15%);
 $background-shade: color-mix(in srgb, $background 85%, $text 15%);
 
@@ -21,3 +21,13 @@ $h4: calc($h5 * $type-scale);
 $h3: calc($h4 * $type-scale);
 $h2: calc($h3 * $type-scale);
 $h1: calc($h2 * $type-scale);
+
+// Icons
+$icon-size: 2em;
+
+// Breakpoints - from Bootstrap
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;

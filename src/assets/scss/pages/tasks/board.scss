@@ -2,8 +2,13 @@
 
 #page.board {
   display: flex;
-  justify-content: center;
   gap: 4em;
+  width: fit-content;
+  height: fit-content;
+
+  @media screen and (max-width: $md) {
+    flex-direction: column;
+  }
 
   .status {
     display: flex;
