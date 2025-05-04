@@ -77,6 +77,10 @@ a {
     width: $icon-size;
     aspect-ratio: 1 / 1;
   }
+
+  &.icon-menu svg {
+    width: $icon-menu-size;
+  }
 }
 
 .center {

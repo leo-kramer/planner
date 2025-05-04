@@ -1,15 +1,17 @@
+@use 'sass:color';
+
 // Base colours
-$primary: #9ec5d7;
-$secondary: #92be63;
-$accent: #eccc9e;
-$background: #eaf2f6;
-$text: #091016;
+$primary: #c09994;
+$secondary: #b1b384;
+$accent: #ddb99a;
+$background: #f9f6f5;
+$text: #160e0d;
 
 // 15% darker
-$primary-shade: color-mix(in srgb, $primary 85%, $text 15%);
-$secondary-shade: color-m ix(in srgb, $secondary 85%, $text 15%);
-$accent-shade: color-mix(in srgb, $accent 85%, $text 15%);
-$background-shade: color-mix(in srgb, $background 85%, $text 15%);
+$primary-shade: color.mix($primary, $text, 85%);
+$secondary-shade: color.mix($secondary, $text, 85%);
+$accent-shade: color.mix($accent, $text, 85%);
+$background-shade: color.mix($background, $text, 85%);
 
 // Font sizes
 $base-font-size: 1rem;
@@ -23,7 +25,8 @@ $h2: calc($h3 * $type-scale);
 $h1: calc($h2 * $type-scale);
 
 // Icons
-$icon-size: 2em;
+$icon-size: 1em;
+$icon-menu-size: 2em;
 
 // Breakpoints - from Bootstrap
 $sm: 576px;

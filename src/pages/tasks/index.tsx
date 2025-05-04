@@ -2,6 +2,7 @@ import React from 'react';
 import { Task, TasksByStatus, Property, UpsertTask, GetProperties } from './controller.tsx';
 import { useDb } from '../../services/supabase/data/client.tsx';
 import TaskCard from '../../components/cards/task.tsx';
+import { icons } from '../../types/loadicons.ts';
 import '../../assets/scss/pages/tasks/tasks.scss';
 
 interface StatusProps {
@@ -37,20 +38,18 @@ const CreateTaskForm = () => {
 };
 
 const Status: React.FC<StatusProps> = ({ status, tasks }) => {
-  let taskTotalText = 'task';
-  if (tasks.length > 1) {
-    taskTotalText = 'tasks';
-  }
-
   return (
     <div className="status">
       <div className="status-header">
-        <h3>{status}</h3>
-        <button>+</button>
+        <div className="metadata">
+          <h3>{status}</h3>
+          <div className="total-tasks center">{tasks.length}</div>
+        </div>
+        <div className="controls">
+          <button className="icon" dangerouslySetInnerHTML={{ __html: icons.more_menu }}></button>
+          <button className="icon" dangerouslySetInnerHTML={{ __html: icons.add }}></button>
+        </div>
       </div>
-      <p>
-        {tasks.length} {taskTotalText}
-      </p>
       <CreateTaskForm />
       <ul>
         {tasks.map(task => {
@@ -61,6 +60,9 @@ const Status: React.FC<StatusProps> = ({ status, tasks }) => {
           );
         })}
       </ul>
+      <button>
+        <span className="icon" dangerouslySetInnerHTML={{ __html: icons.add }}></span> New task
+      </button>
     </div>
   );
 };

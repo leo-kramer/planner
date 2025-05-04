@@ -2,7 +2,7 @@
 
 $li-padding: 1em;
 $icon-text-gap: 1em;
-$menu-width: calc($li-padding + $icon-size + $icon-text-gap);
+$menu-width: calc($li-padding + $icon-menu-size + $icon-text-gap);
 
 .menu {
   position: fixed;
@@ -68,6 +68,11 @@ $menu-width: calc($li-padding + $icon-size + $icon-text-gap);
         cursor: pointer;
         box-shadow: inset -0.25em 0 $primary;
         background-color: rgba($primary, 0.25);
+
+        a {
+          text-decoration: none;
+          font-weight: bold;
+        }
       }
 
       &.active {

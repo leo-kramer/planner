@@ -9,13 +9,19 @@ const SmallMenu = () => {
       <div className="top">
         <li className="active">
           <Link to="/">
-            <span className="icon" dangerouslySetInnerHTML={{ __html: icons.home }}></span>
+            <span
+              className="icon icon-menu"
+              dangerouslySetInnerHTML={{ __html: icons.home }}
+            ></span>
             <span className="label">Home</span>
           </Link>
         </li>
         <li>
           <Link to="/tasks">
-            <span className="icon" dangerouslySetInnerHTML={{ __html: icons.tasks }}></span>
+            <span
+              className="icon icon-menu"
+              dangerouslySetInnerHTML={{ __html: icons.tasks }}
+            ></span>
             <span className="label">Tasks</span>
           </Link>
         </li>
@@ -43,7 +49,7 @@ const LargeMenu = () => {
           </Link>
         </li>
         <li className="contains-icon">
-          <span className="icon" dangerouslySetInnerHTML={{ __html: icons.inbox }}></span>
+          <span className="icon icon-menu" dangerouslySetInnerHTML={{ __html: icons.inbox }}></span>
           <span className="label">Inbox</span>
         </li>
       </ul>
@@ -52,13 +58,19 @@ const LargeMenu = () => {
         <div className="top">
           <li className="active">
             <Link to="/">
-              <span className="icon" dangerouslySetInnerHTML={{ __html: icons.home }}></span>
+              <span
+                className="icon icon-menu"
+                dangerouslySetInnerHTML={{ __html: icons.home }}
+              ></span>
               <span className="label">Home</span>
             </Link>
           </li>
           <li>
             <Link to="/tasks">
-              <span className="icon" dangerouslySetInnerHTML={{ __html: icons.tasks }}></span>
+              <span
+                className="icon icon-menu"
+                dangerouslySetInnerHTML={{ __html: icons.tasks }}
+              ></span>
               <span className="label">Tasks</span>
             </Link>
           </li>
@@ -66,7 +78,10 @@ const LargeMenu = () => {
         <div className="bottom">
           <li>
             <Link to="/settings">
-              <span className="icon" dangerouslySetInnerHTML={{ __html: icons.settings }}></span>
+              <span
+                className="icon icon-menu"
+                dangerouslySetInnerHTML={{ __html: icons.settings }}
+              ></span>
               <span className="label">Settings</span>
             </Link>
           </li>

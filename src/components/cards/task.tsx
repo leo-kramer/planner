@@ -1,3 +1,4 @@
+import { icons } from '../../types/loadicons.ts';
 import '../../assets/scss/components/cards/task.scss';
 
 interface Task {
@@ -21,7 +22,10 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
     <div className="task">
       <div className="task-header">
         <p>{task.name}</p>
-        <button>x</button>
+        <button
+          className="icon delete-task"
+          dangerouslySetInnerHTML={{ __html: icons.delete }}
+        ></button>
       </div>
       <ul className="properties">
         {(task.properties ?? []).map(
