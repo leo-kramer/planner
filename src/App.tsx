@@ -6,7 +6,7 @@ import './types/vite-env.d.ts';
 import './assets/scss/main/main.scss';
 
 const Home = React.lazy(() => import('./pages/home/controller.tsx'));
-const TaskBoard = React.lazy(() => import('./pages/board/controller.tsx'));
+const Tasks = React.lazy(() => import('./pages/tasks/controller.tsx'));
 const Menu = React.lazy(() => import('./components/sections/menu.tsx'));
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Menu />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/tasks" element={<TaskBoard />} />
+          <Route path="/tasks" element={<Tasks />} />
         </Routes>
       </Suspense>
     </AppProvider>

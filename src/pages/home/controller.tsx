@@ -1,7 +1,7 @@
-import Board from './index.tsx';
+import Tasks from './index.tsx';
 
-const TaskBoardController = () => {
-  return <Board data={'hi'} />;
+const TasksController = () => {
+  return <Tasks data={'hi'} />;
 };
 
-export default TaskBoardController;
+export default TasksController;

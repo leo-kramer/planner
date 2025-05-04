@@ -24,7 +24,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
         <button>x</button>
       </div>
       <ul className="properties">
-        {task.properties.map(
+        {(task.properties ?? []).map(
           property => property.property !== 'status' && <li key={property.id}>{property.value}</li>
         )}
       </ul>
